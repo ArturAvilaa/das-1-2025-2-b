@@ -11,7 +11,7 @@
 
     <modules>
         <module>solid</module>
-        <module>designpatterns</module>
+        <module>Publisher.java</module>
         <module>eventos</module>
     </modules>
 </project>
