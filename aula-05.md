@@ -1,30 +1,70 @@
-# Aula 5 (11/08/2025) - SOLID
+# 11/08/2025 - SOLID
+*Baseada no livro "Código Limpo" e referências de Bertrand Meyer*
 
-## Princípio de Inversão de Dependências: 
+---
 
-Em vez de o código depender diretamente de coisas concretas (como classes específicas), ele deve depender de algo mais genérico (como interfaces). 
-Assim, fica mais fácil trocar ou mudar a implementação sem quebrar tudo. Isso deixa o sistema mais flexível e fácil de manter.
+## Capítulo 1 - Princípio de Inversão de Dependências
+Em vez de o código depender diretamente de implementações concretas (como classes específicas), ele deve depender de abstrações (como interfaces).  
 
-## Princípio Prefira Composição a Herança
+**Benefícios:**
+- Facilita substituição de implementações  
+- Reduz acoplamento  
+- Aumenta a flexibilidade e a manutenibilidade do sistema  
 
-Recomenda usar objetos dentro de outros (composição) em vez de criar subclasses (herança) quando possível.
-A herança cria forte acoplamento e expõe detalhes internos, tornando mudanças mais difíceis.
-Na composição, a relação é mais flexível e pode ser alterada até em tempo de execução.
-Além disso, evita herdar comportamentos desnecessários ou incorretos.
-Em resumo: Heranca deve ser usada majoritariamente em casos que necessita-se que duas classe herdadas de uma classe **Pai** jamais se convertam uma com a outra
+---
 
-## Princípio de Demeter (menor conhecimento)
+## Capítulo 2 - Princípio Prefira Composição a Herança
+Este princípio recomenda priorizar o uso de **composição** em detrimento da **herança**.  
 
-Conhecido tambem como principio de menor conhecimento
+### Herança:
+- Cria forte acoplamento entre classes  
+- Expõe detalhes internos  
+- Pode gerar herança de comportamentos indesejados ou incorretos  
 
-Todo metodo escrito em um objeto deve invocar apenas as seguintes coisas:
-- sua própria classe
-- objetos passados como parâmetro
-- objetos criados por ele mesmo
-- variaveis da classe do metodo
+### Composição:
+- Permite flexibilidade, inclusive alteração em tempo de execução  
+- Evita dependência excessiva entre classes  
+- Reduz efeitos colaterais em mudanças  
 
-## Open/Closed Principle (Princípio de Aberto/Fechado)
+**Resumo:**  
+A herança deve ser usada somente quando duas classes **filhas** realmente compartilham uma relação clara com a classe **pai** e não fazem sentido sem essa hierarquia.  
 
-Trata-se de um principio que Bertrand Meyer ainda na década de 80 defendia, que diz que uma classe deve estar fechada para modificacoes e abertas para extensoes.
+---
 
-Em resumo, o principio tem como objetivo a construção de classes flexíveis e extensíveis, capazes de se adaptarem a diversos cenários de uso, sem modificações no seu código fonte.
+## Capítulo 3 - Princípio de Demeter (Menor Conhecimento)
+Também chamado de **Lei de Demeter** ou princípio do menor conhecimento.  
+
+### Regras:
+Um método deve invocar apenas:
+- Métodos da sua **própria classe**  
+- Métodos de objetos recebidos como **parâmetro**  
+- Métodos de objetos **criados internamente**  
+- Métodos de **atributos** da própria classe  
+
+**Objetivo:**  
+Evitar o acoplamento excessivo e a dependência em cadeias longas de chamadas.  
+
+---
+
+## Capítulo 4 - Open/Closed Principle (Aberto/Fechado)
+Defendido por **Bertrand Meyer** na década de 80.  
+Diz que **uma classe deve estar fechada para modificações, mas aberta para extensões.**  
+
+### Exemplos de aplicação:
+- Uso de **interfaces** para possibilitar múltiplas implementações  
+- Aplicação de **padrões de projeto** como Strategy e Template Method  
+
+**Resumo:**  
+Esse princípio incentiva a construção de classes flexíveis e extensíveis, que se adaptam a diferentes cenários sem necessidade de alterar o código-fonte existente.  
+
+---
+
+## Conclusão da Aula
+Nesta aula (11/08/2025) aprendemos:  
+- O **princípio da inversão de dependências**, essencial para reduzir acoplamento  
+- O motivo de **preferir composição a herança** em busca de maior flexibilidade  
+- Como aplicar o **princípio de Demeter** para evitar cadeias de chamadas complexas  
+- O fundamento do **princípio Aberto/Fechado**, que sustenta extensibilidade sem modificar código existente  
+
+Esses conceitos reforçam os pilares de **SOLID**, garantindo código limpo, organizado e preparado para evoluir.  
+

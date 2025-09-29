@@ -1,8 +1,2 @@
-# Aula 7 (07/08/2025) - Design Patterns
+# Aula 21/08 - Implementação do Design Pattern Observer
 
-
-## Singleton
-
-## Observer
-
-foi iniciado o codigo do observer

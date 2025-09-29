@@ -1,5 +1,5 @@
-# Aula 8 (31/07/2025)  - Design Patterns - 
+# Aula 31/08  - Design Patterns - 
 
 ## Observer
 
-foi feito o codigo do observer
+Realizado o codigo Observer, o mesmo esta implementado na classe designpatterns

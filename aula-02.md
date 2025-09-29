@@ -1,36 +1,53 @@
-## Aula 2 (31/07/2025) - Arquitetura de Código (Falando sobre livro de Eng de Software Moderna)
+# 31/07/2025 - Arquitetura de Código
+*Baseada no livro "Engenharia de Software Moderna"*
 
-### Abstração:
+## Contexto do Livro
+O livro "Engenharia de Software Moderna" aborda práticas contemporâneas de desenvolvimento, enfatizando a importância de fundamentos sólidos em arquitetura de código para construir sistemas sustentáveis e escaláveis.
 
-Uma boa estrategia para combater a complexidade de um software é a criação de abstrações (entender o mundo real e criar uma solução em código)
+## Abstração
+Estratégia fundamental para reduzir a complexidade de software através da representação simplificada de elementos do mundo real em código. Permite focar nos aspectos essenciais ignorando detalhes irrelevantes.
 
-```bash
-Entidade -> Abstração de elementos do mundo real
-Repositório -> Abstração de elementos do banco de dados
-Serviço -> Abstração da lógica de negócios
-Controlador -> Abstração de funcionalidades do backend
-```
-### Complexidade
+**Hierarquia de Abstrações:**
+- **Entidade**: Representação de elementos do domínio real com identidade única
+- **Repositório**: Abstração de operações de persistência e acesso a dados
+- **Serviço**: Abstração da lógica de negócios e orquestração
+- **Controlador**: Abstração de endpoints e interface com clientes externos
 
-Complexidade em software trata-se da dificuldade de entender, modificar e manter um sistema devido à quantidade de elementos, suas interações e a falta de clareza em sua estrutura.
+## Complexidade em Software
+Dificuldade inerente em compreender, modificar e manter um sistema devido a múltiplos fatores: quantidade de elementos, interdependências, falta de clareza estrutural e acoplamento excessivo. Pode ser classificada em:
 
-### Conjunto de boas praticas para Desenvolvimento Orientado a Objetos
+- **Complexidade Acidental**: Resultante de más decisões de design
+- **Complexidade Essencial**: Inerente ao problema sendo resolvido
 
-- Aderir ao padrão de nomenclatura daquela linguagem específica(camelCase, PascalCase, etc)
-- Utilização de Frameworks para padronização de métodos
-- Utilização de estrutura de dados correta
+## Boas Práticas em Desenvolvimento Orientado a Objetos
 
-### Estradas pavimentadas
+- **Padrões de Nomenclatura**: Seguir convenções estabelecidas pela linguagem (camelCase, PascalCase, snake_case)
+- **Uso de Frameworks**: Aproveitar estruturas consolidadas para padronização e produtividade
+- **Estruturas de Dados Adequadas**: Selecionar coleções e tipos apropriados para cada contexto
+- **Princípios SOLID**: Aplicar diretrizes para design orientado a objetos coeso
 
-Ao desenvolver verificar se existe algo que ja foi testado, por vezes sobre o gasto de milhões de reais/dólares, acaba se tornando uma boa prática, pois, além da economia de dinheiro, obtém-se economia de tempo, utilizando-se de estratégias e conhecimentos que já foram lapidados.
+## Estradas Pavimentadas
+Conceito que defende a utilização de soluções já validadas pela indústria, baseado na premissa de que reinventar a roda é custoso e arriscado.
 
-### Ocultamento de Informação
+**Vantagens:**
+- Economia de tempo e recursos financeiros
+- Redução de riscos através de soluções testadas
+- Acesso a conhecimentos e melhores práticas consolidadas
+- Foco em diferenciais competitivos ao invés de problemas já resolvidos
 
-A classe faz a ocultação de informacões por meio do encapsulamento, o que traz as seguintes vantagens para o sistema:
+## Ocultamento de Informação
+Princípio implementado através do encapsulamento que protege os detalhes internos de implementação, expondo apenas interfaces bem definidas.
 
-- Desenvolvimento em paralelo - Ao ocultar informações torna-se mais facil o desenvolvimento em paralelo por conta da proteção aos metodos, classes e etc.
-- Flexibilidade a mudanças - Ao ocultar informações, consegue-se modificar objetos que conversam entre si, porém que não se "conhecem" sem danificar o código.
-- Facilidade de entendimento - Fica mais facil entender o sistema isolando as informações
+**Benefícios:**
+- **Desenvolvimento Paralelo**: Equipes podem trabalhar independentemente em módulos encapsulados
+- **Flexibilidade a Mudanças**: Implementações internas podem evoluir sem impactar consumidores
+- **Facilidade de Entendimento**: Redução da carga cognitiva através de interfaces simplificadas
+- **Manutenibilidade**: Isolamento de mudanças e prevenção de efeitos colaterais
 
-### Getters e Setters
+## Getters e Setters
+Mecanismos que implementam o encapsulamento controlando o acesso aos atributos internos de uma classe. Permitem:
 
+- Validação de dados na entrada
+- Controle de estado interno consistente
+- Flexibilidade para alterar implementação sem quebrar contratos
+- Adição de lógica auxiliar (logging, notificações)

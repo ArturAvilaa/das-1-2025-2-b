@@ -1,29 +1,52 @@
-## Aula 3 (04/08/2025) - Coesão, Acoplamento e SOLID
+# 04/08/2025 - Coesão, Acoplamento e SOLID
 
-### Coesão
+## Coesão
+Princípio que define que uma classe deve conter apenas o código necessário para executar uma única responsabilidade de forma completa.
 
-Trata-se de um codigo minimo para eu fazer uma tarefa bem feita. Toda classe deve implementar uma única funcionalidade ou serviço e todos os metodos e atributos de uma classe devem estar voltados para a implementação do mesmo serviço.
+### Vantagens da Coesão
+- Facilita implementação e entendimento da classe
+- Simplifica manutenção e testes
+- Permite reúso mais eficiente
+- Facilita atribuição de responsabilidades na equipe
 
-#### Coesão tem as seguintes vantagens:
+### Separação de Interesses
+Princípio relacionado que defende que uma classe deve implementar apenas um interesse específico do domínio.
 
-- Facilita a implementação de uma classe, bem como o seu entendimento e manutenção.
-- Facilita a alocação de um único responsável por manter uma classe.
-- Facilita o reúso e teste de uma classe, pois é mais simples reusar e testar uma classe coesa do que uma classe com várias responsabilidades.
+## Acoplamento
+Grau de interdependência entre classes e componentes do sistema.
 
-#### Separação de interesses: é uma propriedade desejável parecida com a coesão, ela defende que uma classe deve implementar apenas um interesse.
+### Tipos de Acoplamento
+**Aceitável:**
+- Dependência via interfaces estáveis
+- Uso de métodos públicos bem definidos
 
-### Acoplamento
+**Ruim:**
+- Dependência de implementações instáveis
+- Uso de variáveis globais ou arquivos compartilhados
 
-Acoplamento é o grau de dependência entre classes e pode ser aceitável ou ruim. É aceitável quando ocorre por meio de interfaces estáveis e uso de métodos públicos. Já o acoplamento ruim surge quando há dependência de implementações instáveis, como arquivos compartilhados ou variáveis globais. Existe o acoplamento estrutural (explícito no código) e o evolutivo (efeito de mudanças se propagarem). Minimizar o acoplamento e maximizar a coesão melhora a manutenção e a estabilidade do sistema.
+### Classificações
+- **Acoplamento Estrutural**: Dependências explícitas no código
+- **Acoplamento Evolutivo**: Propagação de mudanças entre componentes
 
-### SOLID
+### Benefícios do Baixo Acoplamento
+- Maior estabilidade do sistema
+- Flexibilidade para modificações
+- Melhor testabilidade dos componentes
 
-É programar orientado a objetos 
+## Princípios SOLID
+Conjunto de cinco princípios para design de software orientado a objetos.
 
-Trata-se de um acrônimo:
+### S - Single Responsibility Principle
+Uma classe deve ter apenas uma razão para mudar.
 
-**S**ingle Resposability Principle | Responsabilidade Única   |
-**O**pen/Closed Principle          | Aberto/Fechado           |
-**L**iskov Substitution Principle  | Substituição de Liskov   |
-**I**nterface Segregation Principle| Segregação de Interfaces |
-**D**ependency Inversion Principle | Inversão de Dependências |
+### O - Open/Closed Principle
+Entidades devem ser abertas para extensão, mas fechadas para modificação.
+
+### L - Liskov Substitution Principle
+Classes derivadas devem ser substituíveis por suas classes base.
+
+### I - Interface Segregation Principle
+Múltiplas interfaces específicas são melhores que uma interface única.
+
+### D - Dependency Inversion Principle
+Dependa de abstrações, não de implementações concretas.
