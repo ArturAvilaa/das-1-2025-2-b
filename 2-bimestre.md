@@ -1,5 +1,4 @@
 # Aula 09/10 - Circuit Breaker  
-## Definições das Características Arquiteturais  
 
 ### Padrão do Disjuntor  
 
