@@ -1,3 +1,3 @@
 # Arquitetura de Software
 
-Repositório para anotaçôes das aulas e anexação de atividades e projetos desenvolvidos 
+Repositório para registro de anotações das aulas, armazenamento de atividades e projetos desenvolvidos
