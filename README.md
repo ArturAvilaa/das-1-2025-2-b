@@ -1,2 +1,3 @@
-# das-1-2025-2-b
-Repositório para anexação das atividades de Design e Arquitetura de Software
+# Arquitetura de Software
+
+Repositório para anotaçôes das aulas e anexação de atividades e projetos desenvolvidos 
