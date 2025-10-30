@@ -13,5 +13,6 @@
         <module>solid</module>
         <module>Publisher.java</module>
         <module>eventos</module>
+        <module>pipeline</module>
     </modules>
 </project>
