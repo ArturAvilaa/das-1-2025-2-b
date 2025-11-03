@@ -338,3 +338,63 @@ Evitar para sistemas grandes, que exigem **alta escalabilidade, agilidade e modu
 
 ## Conclusão
 A **arquitetura em camadas** é ideal para **projetos iniciais ou pequenos sistemas corporativos**, mas perde eficiência e flexibilidade à medida que cresce. É um bom ponto de partida, porém deve evoluir para estilos mais modulares em sistemas de maior porte.
+
+
+# Aula 27/10 -  Estilo de arquitetura em Pipeline
+
+## Conceito
+A **arquitetura Pipeline** é um estilo de arquitetura de software baseado em **processamento sequencial e unidirecional de dados**, em que cada etapa (ou filtro) executa uma função específica e passa o resultado para a próxima etapa.  
+É muito usada em sistemas de **processamento de dados**, **ETL (Extract, Transform, Load)**, **EDI (Intercâmbio Eletrônico de Dados)** e **orquestração de mensagens** (como Apache Camel ou Apache Kafka).
+
+![alt text](image-10.png)
+
+---
+
+## Estrutura Básica
+Um pipeline é formado por **filtros** e **canais**:
+
+- **Produtores:** capturam ou geram dados (ex: Service Info Capture).  
+- **Verificadores:** filtram dados de acordo com regras (ex: Duration Filter, Uptime Filter).  
+- **Transformadores:** processam ou modificam os dados (ex: Duration Calculator, Uptime Calculator).  
+- **Consumidores:** armazenam ou enviam os resultados (ex: Database Output).
+
+*Exemplo:*  
+Dados de telemetria são enviados via **Kafka** → processados por filtros → transformados → armazenados em um banco de dados.
+
+---
+
+## Extensibilidade
+A arquitetura é **modular**, permitindo adicionar novos filtros facilmente.  
+Exemplo: adicionar um filtro após o *Uptime Filter* para coletar nova métrica (como tempo de espera do banco de dados).
+
+---
+
+## Classificação das Características
+
+| Característica             | Avaliação (★) | Descrição                                                                 |
+|-----------------------------|----------------|---------------------------------------------------------------------------|
+| **Custo / Simplicidade**   | ★★★★★          | Arquitetura monolítica simples e barata de implementar.                   |
+| **Modularidade**           | ★★★★★          | Separação clara de responsabilidades entre filtros.                       |
+| **Implementabilidade**     | ★★★☆☆          | Boa, mas depende do monólito completo.                                   |
+| **Testabilidade**          | ★★★☆☆          | Testes modulares possíveis, mas ainda é preciso testar o monólito inteiro.|
+| **Confiabilidade**         | ★★★☆☆          | Média, sem dependência de rede, mas falhas locais afetam todo o sistema. |
+| **Escalabilidade**         | ★☆☆☆☆          | Baixa, pois o monólito limita o crescimento.                             |
+| **Elasticidade**           | ★☆☆☆☆          | Muito baixa — difícil adaptar partes específicas à demanda.              |
+| **Tolerância a falhas**    | ★☆☆☆☆          | Queda em um filtro pode afetar todo o pipeline.                          |
+| **Disponibilidade**        | ★★☆☆☆          | Impactada por longos tempos de reinicialização (alto MTTR).              |
+
+---
+
+## Pontos Fortes
+- Simplicidade e baixo custo.  
+- Modularidade entre os filtros.  
+- Facilidade de entendimento e manutenção.
+
+## Pontos Fracos
+- Monolítico → baixa escalabilidade e tolerância a falhas.  
+- Testabilidade e deploy complexos, pois requerem a reinstalação do sistema todo.  
+- Alta dependência interna (um erro pode afetar tudo).
+
+---
+
+![alt text](image-9.png)
