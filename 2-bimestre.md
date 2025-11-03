@@ -395,6 +395,112 @@ Exemplo: adicionar um filtro após o *Uptime Filter* para coletar nova métrica 
 - Testabilidade e deploy complexos, pois requerem a reinstalação do sistema todo.  
 - Alta dependência interna (um erro pode afetar tudo).
 
+![alt text](image-9.png)
 ---
 
-![alt text](image-9.png)
+# Aula 03/11 - Estilo de arquitetura em Pipeline
+
+## Conceito
+A **arquitetura Microkernel** (também chamada de **arquitetura de plug-in**) é um estilo de arquitetura em que a aplicação é dividida em duas partes principais:
+1. **Sistema Central (Core System)** — contém a funcionalidade mínima necessária para o funcionamento básico do sistema.
+2. **Componentes de Plug-in** — módulos independentes que estendem, personalizam ou modificam o comportamento do sistema central.
+
+É muito usada em **aplicações baseadas em produto** (como IDEs, navegadores e softwares corporativos configuráveis), mas também em **sistemas corporativos** que precisam de **alta extensibilidade e personalização**.
+
+![alt text](image-11.png)
+
+---
+
+## Topologia
+A estrutura básica da arquitetura microkernel é **monolítica e modular**, composta por:
+- **Sistema Central:** fornece o núcleo da aplicação e o fluxo principal de execução.
+- **Plug-ins:** adicionam funcionalidades, regras ou comportamentos específicos.
+- **Registro:** lista e gerencia os plug-ins disponíveis e suas interfaces.
+- **Contratos:** definem como os plug-ins se comunicam com o sistema central.
+
+![alt text](image-12.png)
+
+---
+
+## Sistema Central
+- Contém apenas as funcionalidades essenciais (“mínimo necessário”).
+- Pode ser implementado como uma **arquitetura em camadas** ou como um **bloco monolítico modular**.
+- Serve como ponto de controle, delegando tarefas especializadas aos plug-ins.
+- Exemplo:  
+  - No **Eclipse**, o sistema central é apenas o editor básico.  
+  - Os plug-ins (como depuradores, compiladores e suporte a linguagens) adicionam o restante das funcionalidades.
+
+---
+
+## Componentes de Plug-in
+- São **autônomos e independentes**, contendo regras ou recursos específicos.
+- Devem ser **isolados entre si**, sem dependências diretas.
+- Podem ser implementados como:
+  - **Bibliotecas compartilhadas** (JAR, DLL, Gem);
+  - **Namespaces ou pacotes** (ex: `app.plugin.assessment.iphone6s`);
+  - **Serviços remotos** acessados via **REST ou mensageria**.
+- O **acesso remoto** aumenta o desacoplamento, mas traz mais complexidade, latência e risco de falha.
+
+Os plug-ins podem ter seus próprios **bancos de dados locais**, mas o **acesso central ao banco principal** deve ser controlado pelo sistema central.
+
+![alt text](image-13.png)
+
+---
+
+## Registro e Contratos
+- O **registro de plug-ins** contém informações sobre cada módulo, como nome, tipo de contrato e protocolo de comunicação.
+- Pode ser simples (um mapa interno) ou complexo (usando ferramentas como **ZooKeeper** ou **Consul**).
+- Os **contratos** definem o comportamento padrão e os dados de entrada/saída entre o sistema central e o plug-in.
+- Quando plug-ins são feitos por terceiros, **adaptadores** podem ser usados para compatibilizar contratos diferentes.
+
+![alt text](image-14.png)
+
+---
+
+## Exemplos e Casos de Uso
+- **Eclipse IDE, Jira, Jenkins, navegadores (Chrome, Firefox)** — plug-ins adicionam funcionalidades específicas.
+- **Sistema de processamento de sinistros (seguros):**  
+  - Cada jurisdição pode ter um conjunto de regras implementadas em plug-ins independentes.
+- **Software de imposto (ex: formulário 1040 nos EUA):**  
+  - Cada formulário ou planilha é um plug-in independente, enquanto o formulário principal é o sistema central.
+
+---
+
+## Classificação das Características da Arquitetura
+
+| Característica             | Avaliação (★) | Descrição                                                                 |
+|-----------------------------|----------------|---------------------------------------------------------------------------|
+| **Custo / Simplicidade**   | ★★★★★          | Estrutura simples e barata de desenvolver e manter.                       |
+| **Testabilidade**          | ★★★☆☆          | Plug-ins isolados facilitam testes modulares.                             |
+| **Implementabilidade**     | ★★★☆☆          | Implementação média, mas de baixa complexidade.                           |
+| **Confiabilidade**         | ★★★☆☆          | Média; isolamento de falhas por plug-in melhora estabilidade.             |
+| **Modularidade**           | ★★★☆☆          | Boa, com isolamento e independência entre módulos.                        |
+| **Extensibilidade**        | ★★★☆☆          | Fácil de adicionar ou remover plug-ins sem alterar o sistema central.     |
+| **Performance**            | ★★★☆☆          | Acima da média; pode ser ajustada desativando plug-ins desnecessários.    |
+| **Escalabilidade**         | ★☆☆☆☆          | Baixa; o sistema central é um gargalo.                                   |
+| **Elasticidade**           | ★☆☆☆☆          | Limitada devido à estrutura monolítica.                                  |
+| **Tolerância a falhas**    | ★☆☆☆☆          | Fraca; falha no núcleo afeta toda a aplicação.                            |
+
+---
+
+## Pontos Fortes
+- Simplicidade e baixo custo de desenvolvimento.
+- Boa **modularidade** e **testabilidade**.
+- Facilidade para **extensão e customização**.
+- Redução da **complexidade ciclomática** no sistema central.
+- Ideal para produtos que exigem **personalização** (ex: IDEs, sistemas corporativos configuráveis).
+
+---
+
+## Pontos Fracos
+- **Escalabilidade e tolerância a falhas** limitadas por ser monolítico.  
+- Se o **sistema central falhar**, toda a aplicação para.  
+- O uso de **plug-ins remotos** adiciona latência e complexidade.  
+- A **dependência de um núcleo único** pode causar gargalos de desempenho.
+
+---
+
+## Conclusão
+A **arquitetura Microkernel** é ideal para **sistemas personalizáveis, extensíveis e modulares**, como ferramentas de desenvolvimento e produtos configuráveis.  
+Permite **adicionar, remover ou atualizar funcionalidades** sem modificar o núcleo da aplicação.  
+No entanto, **não é adequada** para aplicações que exigem **alta escalabilidade**, **tolerância a falhas** ou **execução distribuída**, devido à sua **natureza monolítica**.
