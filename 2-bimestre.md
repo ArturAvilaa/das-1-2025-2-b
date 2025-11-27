@@ -1,6 +1,6 @@
 # 2 - Bimestre
 
-## Aula 09/10 - Circuit Breaker  
+## Aula - Circuit Breaker  
 
 ### Padrão do Disjuntor  
 
@@ -125,7 +125,7 @@ Em uma aplicação que utiliza o **Azure Cosmos DB**, durante picos de acesso o 
 O sistema mantém disponibilidade e evita sobrecarga, garantindo recuperação controlada.  
 
 
-# Aula 13/10 – Padrão CQRS
+# Aula – Padrão CQRS
 
 ## Definição
 O **CQRS (Command Query Responsibility Segregation)** separa operações de **leitura** e **gravação** em modelos diferentes.  
@@ -189,7 +189,7 @@ Combinar ambos permite histórico completo de alterações e reconstrução de e
 
 
 
-# Aula 16/10 – Retry Pattern
+# Aula – Retry Pattern
 
 ## Definição
 O **Retry Pattern** é um padrão de resiliência que define uma estratégia para **tentar novamente** uma operação que falhou temporariamente, antes de reportar erro ao sistema.  
@@ -270,7 +270,7 @@ Quando bem configurado, ele reduz indisponibilidades e melhora a experiência do
 
 
 
-# Aula 20/10 -  Arquitetura em Camadas 
+# Aula -  Arquitetura em Camadas 
 
 ## Conceito
 A **arquitetura em camadas** organiza o sistema em níveis horizontais, cada um com funções específicas (apresentação, negócio, persistência e banco de dados). É amplamente usada por ser simples, familiar e de baixo custo. Surge naturalmente conforme a estrutura das equipes (lei de Conway).
@@ -342,7 +342,7 @@ Evitar para sistemas grandes, que exigem **alta escalabilidade, agilidade e modu
 A **arquitetura em camadas** é ideal para **projetos iniciais ou pequenos sistemas corporativos**, mas perde eficiência e flexibilidade à medida que cresce. É um bom ponto de partida, porém deve evoluir para estilos mais modulares em sistemas de maior porte.
 
 
-# Aula 27/10 -  Estilo de arquitetura em Pipeline
+# Aula -  Estilo de arquitetura em Pipeline
 
 ## Conceito
 A **arquitetura Pipeline** é um estilo de arquitetura de software baseado em **processamento sequencial e unidirecional de dados**, em que cada etapa (ou filtro) executa uma função específica e passa o resultado para a próxima etapa.  
@@ -400,7 +400,7 @@ Exemplo: adicionar um filtro após o *Uptime Filter* para coletar nova métrica 
 ![alt text](image-9.png)
 ---
 
-# Aula 03/11 - Estilo de arquitetura em Pipeline
+# Aula - Estilo de arquitetura em Pipeline
 
 ## Conceito
 A **arquitetura Microkernel** (também chamada de **arquitetura de plug-in**) é um estilo de arquitetura em que a aplicação é dividida em duas partes principais:
