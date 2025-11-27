@@ -282,9 +282,6 @@ A **arquitetura em camadas** organiza o sistema em níveis horizontais, cada um 
 - **Camada de Persistência**: comunicação com o banco de dados.
 - **Camada de Banco de Dados**: armazenamento e recuperação de dados.
 
-![alt text](image-5.png)
-
-![alt text](image-6.png)
 
 ## Conceitos-Chave
 
@@ -298,8 +295,6 @@ Cada camada cuida apenas da sua função, facilitando manutenção e especializa
 ### Camadas de Isolamento
 Alterações em uma camada não afetam as outras. Isso permite trocar tecnologias (ex.: trocar JSF por React) sem grandes impactos.
 
-
-![alt text](image-7.png)
 
 ## Adição de Novas Camadas
 Pode-se inserir novas camadas, como **Serviços**, para organizar funcionalidades compartilhadas e controlar acessos entre camadas.
@@ -336,8 +331,6 @@ Evitar para sistemas grandes, que exigem **alta escalabilidade, agilidade e modu
 
 ## Avaliação Geral
 
-![alt text](image-8.png)
-
 ## Conclusão
 A **arquitetura em camadas** é ideal para **projetos iniciais ou pequenos sistemas corporativos**, mas perde eficiência e flexibilidade à medida que cresce. É um bom ponto de partida, porém deve evoluir para estilos mais modulares em sistemas de maior porte.
 
@@ -347,8 +340,6 @@ A **arquitetura em camadas** é ideal para **projetos iniciais ou pequenos siste
 ## Conceito
 A **arquitetura Pipeline** é um estilo de arquitetura de software baseado em **processamento sequencial e unidirecional de dados**, em que cada etapa (ou filtro) executa uma função específica e passa o resultado para a próxima etapa.  
 É muito usada em sistemas de **processamento de dados**, **ETL (Extract, Transform, Load)**, **EDI (Intercâmbio Eletrônico de Dados)** e **orquestração de mensagens** (como Apache Camel ou Apache Kafka).
-
-![alt text](image-10.png)
 
 ---
 
@@ -409,8 +400,6 @@ A **arquitetura Microkernel** (também chamada de **arquitetura de plug-in**) é
 
 É muito usada em **aplicações baseadas em produto** (como IDEs, navegadores e softwares corporativos configuráveis), mas também em **sistemas corporativos** que precisam de **alta extensibilidade e personalização**.
 
-![alt text](image-11.png)
-
 ---
 
 ## Topologia
@@ -419,8 +408,6 @@ A estrutura básica da arquitetura microkernel é **monolítica e modular**, com
 - **Plug-ins:** adicionam funcionalidades, regras ou comportamentos específicos.
 - **Registro:** lista e gerencia os plug-ins disponíveis e suas interfaces.
 - **Contratos:** definem como os plug-ins se comunicam com o sistema central.
-
-![alt text](image-12.png)
 
 ---
 
@@ -445,8 +432,6 @@ A estrutura básica da arquitetura microkernel é **monolítica e modular**, com
 
 Os plug-ins podem ter seus próprios **bancos de dados locais**, mas o **acesso central ao banco principal** deve ser controlado pelo sistema central.
 
-![alt text](image-13.png)
-
 ---
 
 ## Registro e Contratos
@@ -454,8 +439,6 @@ Os plug-ins podem ter seus próprios **bancos de dados locais**, mas o **acesso 
 - Pode ser simples (um mapa interno) ou complexo (usando ferramentas como **ZooKeeper** ou **Consul**).
 - Os **contratos** definem o comportamento padrão e os dados de entrada/saída entre o sistema central e o plug-in.
 - Quando plug-ins são feitos por terceiros, **adaptadores** podem ser usados para compatibilizar contratos diferentes.
-
-![alt text](image-14.png)
 
 ---
 
